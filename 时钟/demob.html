@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	div{font-size:100px;font-weight:900;height:132px;line-height:132px;}
+</style>
+<body>
+	<div id="diva">
+		<img src="num/0.png" alt="">
+		<img src="num/0.png" alt="">:
+		<img src="num/0.png" alt="">
+		<img src="num/0.png" alt="">:
+		<img src="num/0.png" alt="">
+		<img src="num/0.png" alt="">
+	</div>
+	<input type="button" id="btn1" value="开始">
+	<input type="button" id="btn" value="停止">
+	<script>
+		var obtn = document.getElementById("btn");
+		var ogo = document.getElementById("btn1")
+		function fn(){
+			var d = new Date();
+			var hours = d.getHours()+"";
+			var minutes = d.getMinutes()+"";
+			var seconds = d.getSeconds()+"";
+			var hous = [];
+			if(hours <= 9){
+				hous.push("0");
+				hous.push(hours);
+			}else{
+				hous.push(hours[0]);
+				hous.push(hours[1]);
+			}
+			var minute = [];
+			if(minutes <= 9){
+				minute.push("0");
+				minute.push(minutes);
+			}else{
+				minute.push(minutes[0]);
+				minute.push(minutes[1]);
+			}
+			var second = [];
+			if(seconds <= 9){
+				second.push("0");
+				second.push(seconds);
+			}else{
+				second.push(seconds[0]);
+				second.push(seconds[1]);
+			}
+			var str = '<img src="num/'+hous[0]+'.png" alt="">'+
+						'<img src="num/'+hous[1]+'.png" alt="">'+
+						':'+
+						'<img src="num/'+minute[0]+'.png" alt="">'+
+						'<img src="num/'+minute[1]+'.png" alt="">'+
+						':'+
+						'<img src="num/'+second[0]+'.png" alt="">'+
+						'<img src="num/'+second[1]+'.png" alt="">'
+			var odiv = document.getElementById("diva");
+			odiv.innerHTML=str;
+		}	
+				var time = setInterval(function(){
+				fn();
+				},1000);
+			obtn.onclick = function(){
+				clearInterval(time)
+			}
+			ogo.onclick = function(){
+				alert("开始不了了！！！");
+			}
+	</script>
+</body>
+</html>
